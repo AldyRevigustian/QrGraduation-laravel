@@ -34,7 +34,7 @@
             <div class="card-footer">
                 <div class="row">
                     <div class="col-6">
-                        <button type="submit" class="btn btn-danger">Cancel</button>
+                        <a href="{{ route('admin.scan') }}" class="btn btn-danger">Cancel</a>
                     </div>
                     <div class="col-6 d-flex justify-content-end">
                         <form action="{{ route('admin.submit-preview') }}" method="POST" style="display: inline-block">

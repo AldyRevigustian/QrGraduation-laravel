@@ -38,6 +38,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/siswa/pdf/read/{nis}', [SiswaController::class, 'read_pdf'])->name('admin.siswa.read.pdf');
 
     Route::get('/registrasi', [RegistrasiController::class, 'index'])->name('admin.registrasi');
+    Route::get('/registrasi/export', [RegistrasiController::class, 'export'])->name('admin.registrasi.export');
+
+
     Route::get('/scan', [RegistrasiController::class, 'scan'])->name('admin.scan');
     Route::post('/submit-preview', [RegistrasiController::class, 'submit_preview'])->name('admin.submit-preview');
     Route::get('/preview/{barcode}', [RegistrasiController::class, 'preview'])->name('admin.preview');

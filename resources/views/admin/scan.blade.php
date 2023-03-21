@@ -29,7 +29,7 @@
 
             var loading = document.getElementById('loading')
             loading.removeAttribute('hidden')
-            
+
             html5QrcodeScanner.clear().then(_ => {
                 var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
@@ -72,7 +72,7 @@
 
         let html5QrcodeScanner = new Html5QrcodeScanner(
             "reader", {
-                fps: 10,
+                fps: 30,
                 qrbox: {
                     width: 250,
                     height: 250

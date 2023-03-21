@@ -58,10 +58,11 @@ class SiswaController extends Controller
     {
         $siswas = Siswa::all();
         foreach ($siswas as $siswa) {
+            $qr_string = $siswa->nis.'|'.$siswa->nama;
             $format = str_replace(" ", "_", $siswa->kelas);
 
             $filename =  $format . '/QR/' . $siswa->nama . '_' . $siswa->nis . '.png';
-            Storage::disk('public')->put($filename, base64_decode(DNS2DFacade::getBarcodePNG($siswa->nis, "QRCODE")));
+            Storage::disk('public')->put($filename, base64_decode(DNS2DFacade::getBarcodePNG($qr_string, "QRCODE")));
 
             $update = $siswa->update([
                 'foto_barcode' => $filename

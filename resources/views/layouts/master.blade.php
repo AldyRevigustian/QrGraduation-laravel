@@ -38,7 +38,7 @@
                 <div class="header-top">
                     <div class="container">
                         <div class="logo">
-                            <a href="index.html"><img src="/assets/images/logo/logo.svg" alt="Logo" /></a>
+                            <a href="/"><img src="/assets/images/logo/logo.png" alt="Logo" style="height: 50px;"/></a>
                         </div>
                         <div class="header-top-right">
                             <div class="dropdown">

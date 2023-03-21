@@ -17,7 +17,7 @@ class CreateRegistrasisTable extends Migration
             $table->id();
             $table->foreignId('siswa_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamp('jam_hadir');
-            $table->enum('status', ['hadir', 'belum hadir']);
+            $table->enum('status', ['Hadir', 'Belum Hadir']);
             $table->timestamps();
         });
     }
