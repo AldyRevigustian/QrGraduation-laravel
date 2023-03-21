@@ -7,6 +7,9 @@ use App\Models\Registrasi;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use RealRashid\SweetAlert\Facades\Alert;
+
+// use Alert;
 
 class RegistrasiController extends Controller
 {
@@ -29,13 +32,24 @@ class RegistrasiController extends Controller
 
     public function submit_preview(Request $request)
     {
-        $submit = Registrasi::create([
-            'siswa_id' => $request->siswa_id,
-            'status' => 'Hadir',
-            'jam_hadir' => date('Y-m-d H:i:s')
-        ]);
+        $cek = Registrasi::where('siswa_id', $request->siswa_id)->first();
+        if ($cek == null) {
+            $submit = Registrasi::create([
+                'siswa_id' => $request->siswa_id,
+                'status' => 'Hadir',
+                'jam_hadir' => date('Y-m-d H:i:s')
+            ]);
 
-        return redirect()->route('admin.scan')->with('success', 'Berhasil Regis');
+            if ($submit) {
+                toast('Berhasil Registrasi', 'success');
+                return redirect()->route('admin.scan')->with('success', 'Berhasil Regis');
+            }
+
+            toast('Gagal Registrasi', 'error');
+            return redirect()->route('admin.scan');
+        }
+        toast('Gagal Registrasi', 'error');
+        return redirect()->route('admin.scan');
     }
 
     public function export()

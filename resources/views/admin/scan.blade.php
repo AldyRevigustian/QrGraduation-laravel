@@ -1,11 +1,11 @@
 @extends('layouts.master')
-
 @section('content')
 
     </style>
     <center>
-        <div id="reader" class="col-8" ></div>
+        <div id="reader" class="col-12" ></div>
     </center>
+
 
     <div class="justfy-content-center align-items-center text-center">
         <div class="spinner-border text-primary" id="loading" hidden style="width: 100px; height:100px;">
@@ -72,7 +72,7 @@
 
         let html5QrcodeScanner = new Html5QrcodeScanner(
             "reader", {
-                fps: 30,
+                fps: 10,
                 qrbox: {
                     width: 250,
                     height: 250

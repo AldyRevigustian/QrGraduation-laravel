@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -32,13 +33,15 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <div id="app">
         <div id="main" class="layout-horizontal">
             <header class="mb-5">
                 <div class="header-top">
                     <div class="container">
                         <div class="logo">
-                            <a href="/"><img src="/assets/images/logo/logo.png" alt="Logo" style="height: 50px;"/></a>
+                            <a href="/"><img src="/assets/images/logo/logo.png" alt="Logo"
+                                    style="height: 50px;" /></a>
                         </div>
                         <div class="header-top-right">
                             <div class="dropdown">
@@ -74,6 +77,7 @@
                             <a href="#" class="burger-btn d-block d-xl-none">
                                 <i class="bi bi-justify fs-3"></i>
                             </a>
+
                         </div>
                     </div>
                 </div>
@@ -112,7 +116,7 @@
     </div>
 
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
+    <script src="assets/js/pages/horizontal-layout.js"></script>
     <script src="/assets/js/bootstrap.js"></script>
     <script src="/assets/js/app.js"></script>
     <script src="/assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
@@ -133,31 +137,3 @@
 </body>
 
 </html>
-
-{{-- Kalo Dipake --}}
-{{-- <li class="menu-item has-sub">
-    <a href="#" class="menu-link">
-        <span><i class="bi bi-life-preserver"></i> Support</span>
-    </a>
-    <div class="submenu">
-        <!-- Wrap to submenu-group-wrapper if you want 3-level submenu. Otherwise remove it. -->
-        <div class="submenu-group-wrapper">
-            <ul class="submenu-group">
-                <li class="submenu-item">
-                    <a href="https://zuramai.github.io/mazer/docs"
-                        class="submenu-link">Documentation</a>
-                </li>
-
-                <li class="submenu-item">
-                    <a href="https://github.com/zuramai/mazer/blob/main/CONTRIBUTING.md"
-                        class="submenu-link">Contribute</a>
-                </li>
-
-                <li class="submenu-item">
-                    <a href="https://github.com/zuramai/mazer#donation"
-                        class="submenu-link">Donate</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</li> --}}

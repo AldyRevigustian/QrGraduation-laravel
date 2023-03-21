@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="d-flex justify-content-center">
-        <div class="card col-12">
+        <div class="card col-11">
             <div class="card-header" style="padding-bottom: 0px">
                 <h3>
                     Konfirmasi Pengunjung
@@ -13,20 +13,20 @@
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
-                            <td><p style="font-size: 1.1rem">NIS</p></td>
-                            <td><p style="font-size: 1.1rem">{{ $preview->nis }}</p></td>
+                            <td><p style="font-size: 1rem">NIS</p></td>
+                            <td><p style="font-size: 1rem">{{ $preview->nis }}</p></td>
                         </tr>
                         <tr>
-                            <td><p style="font-size: 1.1rem">Nama</p></td>
-                            <td><p style="font-size: 1.1rem">{{ $preview->nama }}</p></td>
+                            <td><p style="font-size: 1rem">Nama</p></td>
+                            <td><p style="font-size: 1rem">{{ $preview->nama }}</p></td>
                         </tr>
                         <tr>
-                            <td><p style="font-size: 1.1rem">Kelas</p></td>
-                            <td><p style="font-size: 1.1rem">{{ $preview->kelas }}</p></td>
+                            <td><p style="font-size: 1rem">Kelas</p></td>
+                            <td><p style="font-size: 1rem">{{ $preview->kelas }}</p></td>
                         </tr>
                         <tr>
-                            <td><p style="font-size: 1.1rem">Pendamping</p></td>
-                            <td><p style="font-size: 1.1rem">{{ $preview->pendamping }}</p></td>
+                            <td><p style="font-size: 1rem">Pendamping</p></td>
+                            <td><p style="font-size: 1rem">{{ $preview->pendamping }}</p></td>
                         </tr>
                     </tbody>
                 </table>
