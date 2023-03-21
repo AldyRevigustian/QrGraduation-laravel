@@ -12,9 +12,14 @@
             </div>
             <div class="card-body">
                 <div class="row mb-3">
-                    <div class="col-12 d-flex justify-content-start">
+                    <div class="col-6 ">
                         <a href="{{ route('admin.registrasi.export') }}"  class="btn btn-success" type="button" >
                             Export Excel
+                        </a>
+                    </div>
+                    <div class="col-6 d-flex justify-content-end">
+                        <a href="https://docs.google.com/spreadsheets/d/1zZzgB_pYy2x5evP0yO8QtIDMLJnu9B4j58fiPukDwYk/edit?usp=sharing" target="_blank"  class="btn btn-success" type="button" >
+                            Live Excel (5 Menit)
                         </a>
                     </div>
                 </div>
