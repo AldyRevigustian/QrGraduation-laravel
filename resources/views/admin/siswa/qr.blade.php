@@ -2,15 +2,36 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
-    <h1>{{ $nama }}</h1>
-    <img src="{{ public_path('storage/' . $foto_barcode) }}" alt="" height="500px" width="500px">
-    <p>{{ $foto_barcode }}</p>
-    <p>{{ $kelas }}</p>
+<style>
+    @page {size: 595px 1000px; margin:0!important; padding:0!important}
+
+
+    body {
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0px;
+    }
+
+    .gambar {
+        justify-content: center;
+        align-items: center;
+    }
+
+    img {
+        position: relative;
+        top: 330px;
+        left: 130px;
+        background-color: white;
+        padding: 10px;
+    }
+</style>
+
+<body style="background-image: url({{ public_path('bg.png') }})">
+    <div class="gambar">
+        <img src="{{ public_path('storage/' . $foto_barcode) }}" alt="" height="320px" width="320px">
+    </div>
 </body>
 
 </html>

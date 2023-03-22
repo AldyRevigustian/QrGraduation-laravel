@@ -75,10 +75,10 @@ class SiswaController extends Controller
                     'kelas' => $siswa->kelas,
                     'foto_barcode' => $siswa->foto_barcode,
                 ];
-
                 $pdfName = $format . '/' . $siswa->nama . '_' . $siswa->nis . '.pdf';
 
                 $pdf = app('dompdf.wrapper');
+                set_time_limit(6000);
                 $hasil = $pdf->loadView('admin.siswa.qr', $data);
 
                 $content = $pdf->download()->getOriginalContent();

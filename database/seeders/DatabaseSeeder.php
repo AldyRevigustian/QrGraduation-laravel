@@ -20,18 +20,33 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
         ]);
         User::create([
-            'name' => 'PanitiaAKL',
-            'email' => 'panitiaakl@gmail.com',
+            'name' => 'PanitiaAKL1',
+            'email' => 'panitiaakl1@gmail.com',
             'password' => bcrypt('password'),
         ]);
         User::create([
-            'name' => 'PanitiaAKL',
-            'email' => 'panitiaotkp@gmail.com',
+            'name' => 'PanitiaAKL2',
+            'email' => 'panitiaakl2@gmail.com',
             'password' => bcrypt('password'),
         ]);
         User::create([
-            'name' => 'PanitiaBDP',
-            'email' => 'panitiabdp@gmail.com',
+            'name' => 'PanitiaOTKP1',
+            'email' => 'panitiaotkp1@gmail.com',
+            'password' => bcrypt('password'),
+        ]);
+        User::create([
+            'name' => 'PanitiaOTKP2',
+            'email' => 'panitiaotkp2@gmail.com',
+            'password' => bcrypt('password'),
+        ]);
+        User::create([
+            'name' => 'PanitiaBDP1',
+            'email' => 'panitiabdp1@gmail.com',
+            'password' => bcrypt('password'),
+        ]);
+        User::create([
+            'name' => 'PanitiaBDP2',
+            'email' => 'panitiabdp2@gmail.com',
             'password' => bcrypt('password'),
         ]);
     }
