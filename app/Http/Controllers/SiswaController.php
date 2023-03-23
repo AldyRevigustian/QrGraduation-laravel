@@ -82,7 +82,7 @@ class SiswaController extends Controller
                 $hasil = $pdf->loadView('admin.siswa.qr', $data);
 
                 $content = $pdf->download()->getOriginalContent();
-                Storage::disk('google')->put($pdfName, $content);
+                Storage::disk('public')->put($pdfName, $content);
 
                 $siswa->update([
                     'tiket' => $pdfName
