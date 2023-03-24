@@ -77,7 +77,7 @@
             {{ $nis . ' | ' . $kelas }}
         </p>
         <p class="nama">
-            {{ "MICHELINE FLOURENCHIA KESUMOJATI" }}
+            {{ $nama }}
         </p>
     </div>
 </body>
