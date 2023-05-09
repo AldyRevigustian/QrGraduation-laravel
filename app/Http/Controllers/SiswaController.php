@@ -31,12 +31,12 @@ class SiswaController extends Controller
         $kelas = Kelas::get();
         return view('admin.siswa.create', compact('kelas'));
     }
-    
+
     public function import(Request $request)
     {
         Excel::import(new SiswaImport, $request->file('file'));
         $this->status();
-        // $this->pdf();
+        $this->pdf();
         return redirect()->route('admin.siswa')->with('status', 'success')->with('message', 'Berhasil Mengimport Siswa');
     }
 
@@ -71,10 +71,10 @@ class SiswaController extends Controller
     {
         $siswas = Siswa::all();
         foreach ($siswas as $siswa) {
-            $qr_string = $siswa->nis . '|' . $siswa->nama;
             $format = str_replace(" ", "_", $siswa->kelas);
+            $qr_string = $format . '|' . $siswa->nama;
 
-            $filename =  $format . '/QR/' . $siswa->nama . '_' . $siswa->nis . '.png';
+            $filename =  $format . '/QR/' . $siswa->nama . '_' . '.png';
             Storage::disk('public')->put($filename, base64_decode(DNS2DFacade::getBarcodePNG($qr_string, "QRCODE")));
 
             $update = $siswa->update([
@@ -84,11 +84,10 @@ class SiswaController extends Controller
             if ($update) {
                 $data = [
                     'nama' => $siswa->nama,
-                    'nis' => $siswa->nis,
                     'kelas' => $siswa->kelas,
                     'foto_barcode' => $siswa->foto_barcode,
                 ];
-                $pdfName = $format . '/' . $siswa->nama . '_' . $siswa->nis . '.pdf';
+                $pdfName = $format . '/' . $siswa->nama . '_' . $format . '.pdf';
 
                 $pdf = app('dompdf.wrapper');
                 set_time_limit(6000);

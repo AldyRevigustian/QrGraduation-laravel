@@ -22,4 +22,9 @@ class Siswa extends Model
     {
         return $this->hasOne(Registrasi::class);
     }
+
+    public function detail_status()
+    {
+        return $this->hasMany(DetailStatus::class);
+    }
 }

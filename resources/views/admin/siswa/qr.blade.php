@@ -62,7 +62,7 @@
         margin: 0px;
         margin-bottom: 5px;
         padding: 0px;
-        font-size: 20px;
+        font-size: 30px;
         color: #ff66c4;
         font-family: Montserrat;
     }
@@ -74,7 +74,7 @@
     </div>
     <div class="text">
         <p class="ket">
-            {{ $nis . ' | ' . $kelas }}
+            XII {{ $kelas }}
         </p>
         <p class="nama">
             {{ $nama }}

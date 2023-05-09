@@ -12,11 +12,12 @@ class Registrasi extends Model
     protected $fillable = [
         'jam_hadir',
         'siswa_id',
-        'status',
     ];
 
     public function siswa()
     {
         return $this->belongsTo(Siswa::class);
     }
+
+    
 }
