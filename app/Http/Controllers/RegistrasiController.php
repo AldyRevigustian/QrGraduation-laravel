@@ -27,7 +27,8 @@ class RegistrasiController extends Controller
     public function preview($barcode)
     {
         $explode = explode("|", $barcode);
-        $preview = Siswa::where('kelas', $explode[0])->where('nama', $explode[1])->first();
+        $format_kelas = str_replace("_", " ", $explode[0]);
+        $preview = Siswa::where('kelas', $format_kelas)->where('nama', $explode[1])->first();
 
         return view('admin.preview', compact('preview'));
     }
