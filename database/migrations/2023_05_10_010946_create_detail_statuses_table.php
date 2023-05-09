@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('detail_statuses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('siswa_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->string('name');
-            $table->boolean('status')->default(0);
+            $table->string('registrant_name');
+            $table->enum('status', ['Hadir', '-'])->default('-');
             $table->timestamps();
         });
     }

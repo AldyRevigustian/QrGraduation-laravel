@@ -47,20 +47,20 @@ class SiswaController extends Controller
         foreach ($siswas as $siswa) {
             DetailStatus::create([
                 "siswa_id" => $siswa->id,
-                "name" => $siswa->nama,
+                "registrant_name" => $siswa->nama,
             ]);
 
             if ($siswa->pendamping_1 != '-') {
                 DetailStatus::create([
                     "siswa_id" => $siswa->id,
-                    "name" => $siswa->pendamping_1,
+                    "registrant_name" => $siswa->pendamping_1,
                 ]);
             }
 
             if ($siswa->pendamping_2 != '-') {
                 DetailStatus::create([
                     "siswa_id" => $siswa->id,
-                    "name" => $siswa->pendamping_2,
+                    "registrant_name" => $siswa->pendamping_2,
                 ]);
             }
         }

@@ -37,10 +37,10 @@
                                     @foreach ($preview->detail_status as $detail)
                                         <div class="form-check m-2">
                                             <div class="checkbox">
-                                                <input type="checkbox" {{ $detail->status == 1 ? 'disabled' : '' }}
+                                                <input type="checkbox" {{ $detail->status == 'Hadir' ? 'disabled' : '' }}
                                                     name="register[]" value={{ $detail->id }} class="form-check-input"
-                                                    {{ $detail->status == 1 ? 'checked' : '' }}>
-                                                <label> {{ $detail->name }}</label>
+                                                    {{ $detail->status == "Hadir" ? 'checked' : '' }}>
+                                                <label> {{ $detail->registrant_name }}</label>
                                             </div>
                                         </div>
                                     @endforeach

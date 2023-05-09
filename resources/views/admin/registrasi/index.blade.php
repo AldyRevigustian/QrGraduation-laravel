@@ -18,13 +18,13 @@
             </div>
             <div class="card-body">
                 <div class="row mb-3">
-                    <div class="col-6 ">
+                    {{-- <div class="col-6 ">
                         <a href="{{ route('admin.registrasi.export') }}" class="btn btn-success" type="button">
                             Export Excel
                         </a>
-                    </div>
-                    <div class="col-6 d-flex justify-content-end">
-                        <a href="https://docs.google.com/spreadsheets/d/1zZzgB_pYy2x5evP0yO8QtIDMLJnu9B4j58fiPukDwYk/edit?usp=sharing"
+                    </div> --}}
+                    <div class="">
+                        <a href="https://docs.google.com/spreadsheets/d/1AGrGQGl65hY8iQ2kE3LZUlYIzp3a54J16bQtAURNKk8/edit?usp=sharing"
                             target="_blank" class="btn btn-success" type="button">
                             Live Excel (5 Menit)
                         </a>
@@ -53,8 +53,8 @@
                                             <div class="form-check">
                                                 <div class="checkbox">
                                                     <input type="checkbox" class="form-check-input"
-                                                        {{ $detail->status == 1 ? 'checked' : '' }}>
-                                                    <label> {{ $detail->name }}</label>
+                                                        {{ $detail->status == "Hadir" ? 'checked' : '' }}>
+                                                    <label> {{ $detail->registrant_name }}</label>
                                                 </div>
                                             </div>
                                         </ul>

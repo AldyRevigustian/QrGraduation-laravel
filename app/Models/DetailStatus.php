@@ -11,7 +11,7 @@ class DetailStatus extends Model
 
     protected $fillable = [
         "siswa_id",
-        "name",
+        "registrant_name",
         "status"
     ];
 

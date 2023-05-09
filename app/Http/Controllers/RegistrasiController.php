@@ -48,7 +48,7 @@ class RegistrasiController extends Controller
                 foreach ($request->register as $det) {
                     $status = DetailStatus::where('id', $det)->first();
                     $status->update([
-                        'status' => 1
+                        'status' => 'Hadir'
                     ]);
                 }
                 toast('Berhasil Registrasi', 'success');
@@ -62,7 +62,7 @@ class RegistrasiController extends Controller
                 foreach ($request->register as $det) {
                     $status = DetailStatus::where('id', $det)->first();
                     $status->update([
-                        'status' => 1
+                        'status' => 'Hadir'
                     ]);
                 }
                 toast('Berhasil Registrasi', 'success');
