@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Imports\SiswaImport;
+use App\Models\DetailStatus;
 use App\Models\Kelas;
 use App\Models\Siswa;
+use Google\Service\ContainerAnalysis\Detail;
 // use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 // use Barryvdh\DomPDF\PDF as DomPDFPDF;
 // use GdImage;
@@ -50,15 +52,43 @@ class SiswaController extends Controller
     public function import(Request $request)
     {
         Excel::import(new SiswaImport, $request->file('file'));
-        $this->pdf();
+        $this->status();
+        // $this->pdf();
         return redirect()->route('admin.siswa')->with('status', 'success')->with('message', 'Berhasil Mengimport Siswa');
     }
+
+    public function status()
+    {
+        $siswas = Siswa::all();
+
+        foreach ($siswas as $siswa) {
+            DetailStatus::create([
+                "siswa_id" => $siswa->id,
+                "name" => $siswa->nama,
+            ]);
+
+            if ($siswa->pendamping_1 != '-') {
+                DetailStatus::create([
+                    "siswa_id" => $siswa->id,
+                    "name" => $siswa->pendamping_1,
+                ]);
+            }
+
+            if ($siswa->pendamping_2 != '-') {
+                DetailStatus::create([
+                    "siswa_id" => $siswa->id,
+                    "name" => $siswa->pendamping_2,
+                ]);
+            }
+        }
+    }
+
 
     public function pdf()
     {
         $siswas = Siswa::all();
         foreach ($siswas as $siswa) {
-            $qr_string = $siswa->nis.'|'.$siswa->nama;
+            $qr_string = $siswa->nis . '|' . $siswa->nama;
             $format = str_replace(" ", "_", $siswa->kelas);
 
             $filename =  $format . '/QR/' . $siswa->nama . '_' . $siswa->nis . '.png';
@@ -82,7 +112,8 @@ class SiswaController extends Controller
                 $hasil = $pdf->loadView('admin.siswa.qr', $data);
 
                 $content = $pdf->download()->getOriginalContent();
-                Storage::disk('google')->put($pdfName, $content);
+                // Storage::disk('google')->put($pdfName, $content);
+                Storage::disk('public')->put($pdfName, $content);
 
                 $siswa->update([
                     'tiket' => $pdfName
@@ -91,9 +122,9 @@ class SiswaController extends Controller
         }
     }
 
-    function read_pdf($nis)
+    function read_pdf($id)
     {
-        $siswa = Siswa::where('nis', $nis)->first();
+        $siswa = Siswa::where('id', $id)->first();
         $data = Gdrive::get($siswa->tiket);
         return response($data->file, 200)
             ->header('Content-Type', $data->ext)
